@@ -5,6 +5,10 @@ import "./App.css";
 import shoppingIcon from "./assets/shopping-icon.svg";
 
 function App() {
+  const [value, setValue] = useState("");
+
+  console.log(value);
+
   return (
     <>
       <nav className="nav">
@@ -12,7 +16,22 @@ function App() {
         <h1 className="nav-title">Shopping List</h1>
       </nav>
 
-      <section className="container"></section>
+      <section className="container">
+        <form className="form">
+          <input
+            onChange={(e) => {
+              setValue(e.target.value);
+            }}
+            value={value}
+            className="input"
+            type="text"
+            placeholder="list"
+          />
+          <button className="add-button" type="submit">
+            add
+          </button>
+        </form>
+      </section>
     </>
   );
 }
