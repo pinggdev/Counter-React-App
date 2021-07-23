@@ -1,5 +1,4 @@
 import { useState } from "react";
-import classnames from "classnames";
 
 import "./App.css";
 
@@ -14,6 +13,14 @@ function App() {
     { title: "Tahu sumedang", count: 1 },
     { title: "Semangka", count: 1 },
   ]);
+
+  const handleAdditonCount = (index) => {
+    const newTodos = [...todos];
+
+    newTodos[index].count = newTodos[index].count + 1;
+
+    setTodos(newTodos);
+  };
 
   return (
     <>
@@ -57,7 +64,10 @@ function App() {
                       <img src={minusIcon} alt="minus icon" />
                     </button>
 
-                    <button className="todo-action-button">
+                    <button
+                      onClick={() => handleAdditonCount(index)}
+                      className="todo-action-button"
+                    >
                       <img src={plusIcon} alt="plus icon" />
                     </button>
                   </div>
