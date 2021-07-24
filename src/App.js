@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable comma-dangle */
 /* eslint-disable space-before-function-paren */
 /* eslint-disable quotes */
@@ -7,8 +8,9 @@
 import { useState } from "react";
 
 import "./App.css";
+import Navbar from "./components/Navbar/index";
+import Container from "./components/Container";
 
-import shoppingIcon from "./assets/shopping-icon.svg";
 import plusIcon from "./assets/plus-icon.svg";
 import minusIcon from "./assets/minus-icon.svg";
 
@@ -74,12 +76,9 @@ function App() {
 
   return (
     <>
-      <nav className="nav">
-        <img className="nav-icon" src={shoppingIcon} alt="shopping icon" />
-        <h1 className="nav-title">Shopping List</h1>
-      </nav>
+      <Navbar />
 
-      <section className="container">
+      <Container>
         <form className="form" onSubmit={handleSubmit}>
           <input
             onChange={(e) => {
@@ -145,7 +144,7 @@ function App() {
         ) : (
           <div>Kosong</div>
         )}
-      </section>
+      </Container>
     </>
   );
 }
