@@ -1,3 +1,9 @@
+/* eslint-disable comma-dangle */
+/* eslint-disable space-before-function-paren */
+/* eslint-disable quotes */
+/* eslint-disable multiline-ternary */
+/* eslint-disable no-undef */
+/* eslint-disable semi */
 import { useState } from "react";
 
 import "./App.css";
@@ -58,6 +64,14 @@ function App() {
     setTodos(newTodos);
   };
 
+  const getTotalCounts = () => {
+    const totalCounts = todos.reduce((total, num) => {
+      return total + num.count;
+    }, 0);
+
+    return totalCounts;
+  };
+
   return (
     <>
       <nav className="nav">
@@ -83,14 +97,16 @@ function App() {
 
         <div className="info">
           <div className="info-total">
-            <p>Total List</p>
+            <p>{`Total List: ${todos.length}`}</p>
           </div>
 
           <div className="info-total">
-            <p>Total Counts</p>
+            <p>{`Total Counts: ${getTotalCounts()}`}</p>
           </div>
 
-          <button className="delete-all-button">Delete All List</button>
+          <button onClick={() => setTodos([])} className="delete-all-button">
+            Delete All List
+          </button>
         </div>
 
         {todos.length > 0 ? (
