@@ -45,7 +45,15 @@ function App() {
   const handleSubstractionCount = (index) => {
     const newTodos = [...todos];
 
-    newTodos[index].count = newTodos[index].count - 1;
+    if (newTodos[index].count > 0) {
+      // Selama jumlah count masih di atas 0
+      // Bisa lakuin pengurangan
+      newTodos[index].count = newTodos[index].count - 1;
+    } else {
+      // Kalo udah 0 dan masih dikurangin juga
+      // hapus array value dengan index yang sesuai
+      newTodos.splice(index, 1);
+    }
 
     setTodos(newTodos);
   };
