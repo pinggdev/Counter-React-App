@@ -1,10 +1,13 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable comma-dangle */
 /* eslint-disable semi */
 /* eslint-disable quotes */
+import styles from "./Container.module.css";
+
 import PropTypes from "prop-types";
 
 const Container = (props) => {
-  return <section className="container">{props.children}</section>;
+  return <section className={styles.container}>{props.children}</section>;
 };
 
 Container.propTypes = {
